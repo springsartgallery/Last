@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Springs Art Gallery - Maximized Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <header class="gallery-header">
+        <div class="logo">SPRINGS ART GALLERY</div>
+        <div class="cycle-tag">Exhibition Programme 2026—2027</div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Enlarged Viewer Area -->
+        <section class="viewer-window">
+            <iframe name="content-viewer" src="about:blank"></iframe>
+            <div class="empty-state">
+                <p>Select a document to begin</p>
+            </div>
+        </section>
+
+        <!-- Pagination Dashboard Controller -->
+        <nav class="pagination-ui">
+            <div class="pagination-controls">
+                <a href="guidelines.pdf" target="content-viewer" class="page-btn">
+                    <span class="num">01</span>
+                    <span class="txt">Guidelines</span>
+                </a>
+                <a href="application-form.pdf" target="content-viewer" class="page-btn">
+                    <span class="num">02</span>
+                    <span class="txt">Application Form</span>
+                </a>
+                <a href="floor-plan.pdf" target="content-viewer" class="page-btn">
+                    <span class="num">03</span>
+                    <span class="txt">Floor Plan</span>
+                </a>
+            </div>
+            <div class="contact-action">
+                <a href="mailto:Nkosinathi.Gumede@ekurhuleni.gov.za">Support</a>
+            </div>
+        </nav>
+    </main>
+
+    <footer class="gallery-footer">
+        <p>&copy; 2025 Springs Art Gallery. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* --- Core Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    height: 100vh; /* Lock to full viewport height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- Header --- */
+.gallery-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo { font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; }
+.cycle-tag { font-size: 0.65rem; color: rgba(255,255,255,0.3); }
+
+/* --- Dashboard: Maximized Viewport Area --- */
+.dashboard-container {
+    flex-grow: 1; /* Fills all space between header and footer */
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px; /* Minimized padding to enlarge viewer */
+    gap: 10px;
+}
+
+.viewer-window {
+    flex-grow: 1; /* Forces the window to expand vertically */
+    background: #000000;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 2;
+    position: relative;
+    display: block;
+}
+
+.empty-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.empty-state p {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Pagination Dashboard Controller --- */
+.pagination-ui {
+    height: 65px; /* Thinner controller for more viewer space */
+    background: #1a1a1a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the pagination */
+    padding: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.page-btn {
+    text-decoration: none;
+    background: #222222;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.2s;
+}
+
+.page-btn .num { font-size: 0.6rem; font-weight: 800; opacity: 0.3; }
+.page-btn .txt { font-size: 0.8rem; }
+
+.page-btn:hover, .page-btn:focus {
+    background: #ffffff;
+    color: #000000;
+    outline: none;
+}
+
+.contact-action { position: absolute; right: 40px; }
+.contact-action a { color: rgba(255,255,255,0.4); font-size: 0.7rem; text-decoration: none; }
+
+/* --- Footer --- */
+.gallery-footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* --- Mobile Logic --- */
+@media (max-width: 768px) {
+    .dashboard-container { padding: 5px; }
+    .pagination-ui { height: auto; padding: 15px; }
+    .page-btn .txt { display: none; } /* Numbers only on mobile */
+    .contact-action { display: none; }
+}
