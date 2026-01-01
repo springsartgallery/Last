@@ -6,10 +6,10 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: #121212;
     color: #ffffff;
-    height: 100vh; /* Lock to full viewport height */
+    height: 100vh; 
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -29,17 +29,18 @@ body {
 .logo { font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; }
 .cycle-tag { font-size: 0.65rem; color: rgba(255,255,255,0.3); }
 
-/* --- Dashboard: Maximized Viewport Area --- */
+/* --- Dashboard Container --- */
 .dashboard-container {
-    flex-grow: 1; /* Fills all space between header and footer */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 10px 15px; /* Minimized padding to enlarge viewer */
+    padding: 10px 15px; 
     gap: 10px;
 }
 
+/* --- Viewer Area (Enlarged) --- */
 .viewer-window {
-    flex-grow: 1; /* Forces the window to expand vertically */
+    flex-grow: 1;
     background: #000000;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -74,14 +75,15 @@ iframe {
 
 /* --- Pagination Dashboard Controller --- */
 .pagination-ui {
-    height: 65px; /* Thinner controller for more viewer space */
+    height: 65px;
     background: #1a1a1a;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the pagination */
+    justify-content: center;
     padding: 0 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
 
 .pagination-controls {
@@ -111,8 +113,17 @@ iframe {
     outline: none;
 }
 
-.contact-action { position: absolute; right: 40px; }
-.contact-action a { color: rgba(255,255,255,0.4); font-size: 0.7rem; text-decoration: none; }
+/* Adjusted to avoid Chatbase bubble overlap */
+.contact-action { 
+    position: absolute; 
+    right: 20px; 
+}
+
+.contact-action a { 
+    color: rgba(255,255,255,0.4); 
+    font-size: 0.7rem; 
+    text-decoration: none; 
+}
 
 /* --- Footer --- */
 .gallery-footer {
@@ -128,7 +139,7 @@ iframe {
 /* --- Mobile Logic --- */
 @media (max-width: 768px) {
     .dashboard-container { padding: 5px; }
-    .pagination-ui { height: auto; padding: 15px; }
-    .page-btn .txt { display: none; } /* Numbers only on mobile */
-    .contact-action { display: none; }
+    .pagination-ui { height: auto; padding: 15px; flex-direction: column; gap: 15px; }
+    .page-btn .txt { display: none; }
+    .contact-action { position: static; }
 }
